@@ -1,0 +1,30 @@
+{
+
+  "manifest_version": 2,
+  "name": "Focus Ibis",
+  "version": "1.0",
+
+  "description": "Removes Click-Bait/Feeds from Frequented Apps",
+
+  "icons": {
+    "96": "icons/logo.png"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["*://*.linkedin.com/*"],
+      "js": ["site/linkedin.js"],
+      "run_at": "document_start"
+    }, {
+      "matches": [
+				"https://www.youtube.com/*",
+				"https://www.youtube.com/?*",
+				"https://www.youtube.com/watch*"
+			],
+      "exclude_matches": ["*://www.youtube.com/detached_player/*"],
+      "js": ["site/youtube.js"],
+      "run_at": "document_start"
+    }
+  ]
+
+}
